@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Brovko | Bio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        cyber: {
+                            base: '#0f172a',
+                            light: '#1e293b',
+                            accent: '#38bdf8',
+                            secondary: '#818cf8',
+                            glow: '#22d3ee',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #e2e8f0;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .game-tag {
+            transition: all 0.3s ease;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            text-decoration: none !important;
+        }
+
+        .game-tag:hover {
+            background: rgba(56, 189, 248, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #10b981;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 50;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Основной блок -->
+    <main class="w-full max-w-4xl glass-panel rounded-3xl p-6 md:p-10 relative z-10 animate-fade-in border-t border-white/10">
+        
+        <!-- Шапка: Фото и Имя -->
+        <div class="flex flex-col md:flex-row items-center gap-8 mb-10">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
+                <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-slate-800 flex items-center justify-center border-4 border-slate-900 overflow-hidden shadow-2xl">
+                    <!-- Твоя фотография по ссылке -->
+                    <img src="https://i.ibb.co/C56XMdxY/image.jpg" alt="Andrew Brovko" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute bottom-2 right-2 bg-slate-900 rounded-full p-1.5 border border-slate-700 z-10">
+                    <span class="text-2xl">🇺🇦</span>
+                </div>
+            </div>
+
+            <div class="text-center md:text-left flex-1">
+                <div class="inline-block px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-xs font-semibold text-cyan-400 mb-2 tracking-wide uppercase">
+                    Personal Profile
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
+                    Andrew <span class="text-slate-400 font-medium">Brovko</span>
+                </h1>
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-2 text-lg text-slate-300">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-at text-cyber-accent"></i>
+                        <span class="text-white hover:text-cyan-400 transition cursor-pointer" onclick="copyToClipboard('@Keldisqq', 'Никнейм скопирован!')">Keldisqq</span>
+                    </span>
+                    <span class="hidden md:block text-slate-600">•</span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-cake-candles text-purple-400"></i>
+                        16 Октября
+                    </span>
+                </div>
+                
+                <!-- Кнопки -->
+                <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
+                    <a href="https://t.me/keldisqq_bio" target="_blank" class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg shadow-blue-500/20 flex items-center gap-2 group">
+                        <i class="fa-brands fa-telegram text-xl"></i>
+                        Telegram
+                    </a>
+                    
+                    <a href="https://steamcommunity.com/profiles/76561199816952712/" target="_blank" class="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold transition-all border border-white/10 flex items-center gap-2">
+                        <i class="fa-brands fa-steam text-xl"></i>
+                        Steam
+                    </a>
+
+                    <button onclick="copyToClipboard('7128871752', 'ID скопирован!')" class="px-6 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold transition-all border border-slate-600 flex items-center gap-2">
+                        <i class="fa-solid fa-fingerprint"></i>
+                        ID
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Информация -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            <div class="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50">
+                <div class="text-slate-400 text-xs uppercase font-bold mb-1">Местоположение</div>
+                <div class="text-white font-bold">Андреевка</div>
+                <div class="text-slate-500 text-xs">Харьковская обл.</div>
+            </div>
+
+            <div class="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50">
+                <div class="text-slate-400 text-xs uppercase font-bold mb-1">Регистрация</div>
+                <div class="text-white font-bold">06.10.2024</div>
+                <div class="text-slate-500 text-xs">Активный аккаунт</div>
+            </div>
+
+            <div class="bg-slate-800/40 p-5 rounded-2xl border border-slate-700/50 cursor-pointer" onclick="copyToClipboard('+380956727980', 'Номер скопирован!')">
+                <div class="text-slate-400 text-xs uppercase font-bold mb-1">Телефон</div>
+                <div class="text-white font-bold">+380 95 672 7980</div>
+                <div class="text-cyan-500 text-[10px] font-bold">КЛИКНИ ДЛЯ КОПИРОВАНИЯ</div>
+            </div>
+        </div>
+
+        <!-- Устройства -->
+        <div class="mb-10">
+            <h2 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">Девайсы</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/30 border border-slate-700">
+                    <i class="fa-solid fa-mobile-screen text-2xl text-cyan-400"></i>
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold uppercase">Смартфон</div>
+                        <div class="text-white font-bold">Samsung Galaxy A26 5G</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/30 border border-slate-700">
+                    <i class="fa-solid fa-laptop text-2xl text-purple-400"></i>
+                    <div>
+                        <div class="text-xs text-slate-500 font-bold uppercase">Ноутбук</div>
+                        <div class="text-white font-bold">Acer Aspire 5 A515</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Игры -->
+        <div class="mb-6">
+            <h2 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">Игры в Steam</h2>
+            <div class="flex flex-wrap gap-2" id="games-container"></div>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-slate-800 text-center text-slate-500 text-xs">
+            <p>Канал: @keldisqq_bio • © 2026 Andrew Brovko</p>
+        </div>
+
+    </main>
+
+    <div id="toast" class="toast shadow-2xl">Скопировано!</div>
+
+    <script>
+        const games = [
+            "Dota 2", "Hotline Miami", "Counter Strike Source", "Postal 2", 
+            "Assassin's Creed Rogue", "Alan Wake", "Binding of Isaac Repentance", 
+            "Borderlands 2", "Garry's Mod", "Geometry Dash", "Hatred", 
+            "Left 4 Dead", "People Playground", "Terraria", "Tomb Raider", 
+            "WoT Blitz", "Don't Starve Together", "Detroit Become Human", 
+            "Portal 2", "Peak", "Sand Box"
+        ];
+
+        const gamesContainer = document.getElementById('games-container');
+
+        games.forEach(game => {
+            const link = document.createElement('a');
+            link.href = `https://store.steampowered.com/search/?term=${encodeURIComponent(game)}`;
+            link.target = "_blank";
+            link.className = "game-tag px-3 py-1.5 rounded-lg text-xs text-cyan-100 font-bold flex items-center hover:text-white";
+            link.innerHTML = `<i class="fa-brands fa-steam mr-2"></i>${game}`;
+            gamesContainer.appendChild(link);
+        });
+
+        function copyToClipboard(text, message) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.className = "toast show";
+            setTimeout(() => { toast.className = "toast"; }, 2500);
+        }
+    </script>
+</body>
+</html>
